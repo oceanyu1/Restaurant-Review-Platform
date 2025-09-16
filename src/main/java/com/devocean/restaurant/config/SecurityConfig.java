@@ -21,7 +21,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers(HttpMethod.GET, "/api/photos/**").permitAll()
-                                .requestMatchers("/api/restaurants/**").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/api/restaurants/**").permitAll()
                                 .anyRequest().authenticated() // ALL requests require authentication
                 )
                 // Configure OAuth2 resource server support using JWT tokens
